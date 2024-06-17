@@ -1,0 +1,470 @@
+Loading weights from: /home/ava/rajrup/GKT/segmentation/pretrained_models/map_segmentation_gkt_7x1_conv_setting2.ckpt
+Loaded pretrained weights for efficientnet-b4
+CrossViewTransformer(
+  (encoder): GeometryKernelEncoder(
+    (norm): Normalize()
+    (backbone): EfficientNetExtractor(
+      (layers): Sequential(
+        (0): Sequential(
+          (0): Conv2dStaticSamePadding(
+            3, 48, kernel_size=(3, 3), stride=(2, 2), bias=False
+            (static_padding): ZeroPad2d((0, 1, 0, 1))
+          )
+          (1): BatchNorm2d(48, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+          (2): SiLU()
+        )
+        (1): SequentialWithArgs(
+          (0): MBConvBlock(
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              48, 48, kernel_size=(3, 3), stride=[1, 1], groups=48, bias=False
+              (static_padding): ZeroPad2d((1, 1, 1, 1))
+            )
+            (_bn1): BatchNorm2d(48, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              48, 12, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              12, 48, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              48, 24, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(24, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+          (1): MBConvBlock(
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              24, 24, kernel_size=(3, 3), stride=(1, 1), groups=24, bias=False
+              (static_padding): ZeroPad2d((1, 1, 1, 1))
+            )
+            (_bn1): BatchNorm2d(24, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              24, 6, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              6, 24, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              24, 24, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(24, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+          (2): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              24, 144, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(144, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              144, 144, kernel_size=(3, 3), stride=[2, 2], groups=144, bias=False
+              (static_padding): ZeroPad2d((0, 1, 0, 1))
+            )
+            (_bn1): BatchNorm2d(144, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              144, 6, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              6, 144, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              144, 32, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(32, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+        )
+        (2): SequentialWithArgs(
+          (0): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(192, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              192, 192, kernel_size=(3, 3), stride=(1, 1), groups=192, bias=False
+              (static_padding): ZeroPad2d((1, 1, 1, 1))
+            )
+            (_bn1): BatchNorm2d(192, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              192, 8, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              8, 192, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(32, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+          (1): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(192, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              192, 192, kernel_size=(3, 3), stride=(1, 1), groups=192, bias=False
+              (static_padding): ZeroPad2d((1, 1, 1, 1))
+            )
+            (_bn1): BatchNorm2d(192, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              192, 8, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              8, 192, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(32, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+          (2): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(192, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              192, 192, kernel_size=(3, 3), stride=(1, 1), groups=192, bias=False
+              (static_padding): ZeroPad2d((1, 1, 1, 1))
+            )
+            (_bn1): BatchNorm2d(192, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              192, 8, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              8, 192, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(32, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+          (3): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              32, 192, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(192, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              192, 192, kernel_size=(5, 5), stride=[2, 2], groups=192, bias=False
+              (static_padding): ZeroPad2d((2, 2, 2, 2))
+            )
+            (_bn1): BatchNorm2d(192, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              192, 8, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              8, 192, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              192, 56, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(56, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+        )
+        (3): SequentialWithArgs(
+          (0): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              56, 336, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(336, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              336, 336, kernel_size=(5, 5), stride=(1, 1), groups=336, bias=False
+              (static_padding): ZeroPad2d((2, 2, 2, 2))
+            )
+            (_bn1): BatchNorm2d(336, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              336, 14, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              14, 336, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              336, 56, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(56, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+          (1): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              56, 336, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(336, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              336, 336, kernel_size=(5, 5), stride=(1, 1), groups=336, bias=False
+              (static_padding): ZeroPad2d((2, 2, 2, 2))
+            )
+            (_bn1): BatchNorm2d(336, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              336, 14, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              14, 336, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              336, 56, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(56, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+          (2): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              56, 336, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(336, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              336, 336, kernel_size=(5, 5), stride=(1, 1), groups=336, bias=False
+              (static_padding): ZeroPad2d((2, 2, 2, 2))
+            )
+            (_bn1): BatchNorm2d(336, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              336, 14, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              14, 336, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              336, 56, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(56, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+          (3): MBConvBlock(
+            (_expand_conv): Conv2dStaticSamePadding(
+              56, 336, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn0): BatchNorm2d(336, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_depthwise_conv): Conv2dStaticSamePadding(
+              336, 336, kernel_size=(3, 3), stride=[2, 2], groups=336, bias=False
+              (static_padding): ZeroPad2d((0, 1, 0, 1))
+            )
+            (_bn1): BatchNorm2d(336, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_se_reduce): Conv2dStaticSamePadding(
+              336, 14, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_se_expand): Conv2dStaticSamePadding(
+              14, 336, kernel_size=(1, 1), stride=(1, 1)
+              (static_padding): Identity()
+            )
+            (_project_conv): Conv2dStaticSamePadding(
+              336, 112, kernel_size=(1, 1), stride=(1, 1), bias=False
+              (static_padding): Identity()
+            )
+            (_bn2): BatchNorm2d(112, eps=0.001, momentum=0.010000000000000009, affine=True, track_running_stats=True)
+            (_swish): SiLU()
+          )
+        )
+      )
+    )
+    (bev_embedding): BEVEmbedding()
+    (cross_views): ModuleList(
+      (0): GeometryKernelAttention(
+        (sampling): IndexBEVProjector()
+        (feature_linear): Sequential(
+          (0): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=128, bias=False)
+        )
+        (feature_proj): Sequential(
+          (0): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+          (1): ReLU()
+          (2): Linear(in_features=32, out_features=128, bias=False)
+        )
+        (conv): Conv2d(32, 32, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3))
+        (bev_embed): Conv2d(2, 128, kernel_size=(1, 1), stride=(1, 1))
+        (img_embed): Linear(in_features=4, out_features=128, bias=False)
+        (cam_embed): Conv2d(4, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (cross_attn): KernelAttention(
+          (to_q): Sequential(
+            (0): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+            (1): Linear(in_features=128, out_features=128, bias=True)
+          )
+          (to_k): Sequential(
+            (0): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+            (1): Linear(in_features=128, out_features=128, bias=True)
+          )
+          (to_v): Sequential(
+            (0): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+            (1): Linear(in_features=128, out_features=128, bias=True)
+          )
+          (proj): Linear(in_features=128, out_features=128, bias=True)
+          (prenorm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (0): Linear(in_features=128, out_features=256, bias=True)
+            (1): GELU(approximate=none)
+            (2): Linear(in_features=256, out_features=128, bias=True)
+          )
+          (postnorm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (1): GeometryKernelAttention(
+        (sampling): IndexBEVProjector()
+        (feature_linear): Sequential(
+          (0): LayerNorm((112,), eps=1e-05, elementwise_affine=True)
+          (1): ReLU()
+          (2): Linear(in_features=112, out_features=128, bias=False)
+        )
+        (feature_proj): Sequential(
+          (0): LayerNorm((112,), eps=1e-05, elementwise_affine=True)
+          (1): ReLU()
+          (2): Linear(in_features=112, out_features=128, bias=False)
+        )
+        (conv): Conv2d(112, 112, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3))
+        (bev_embed): Conv2d(2, 128, kernel_size=(1, 1), stride=(1, 1))
+        (img_embed): Linear(in_features=4, out_features=128, bias=False)
+        (cam_embed): Conv2d(4, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (cross_attn): KernelAttention(
+          (to_q): Sequential(
+            (0): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+            (1): Linear(in_features=128, out_features=128, bias=True)
+          )
+          (to_k): Sequential(
+            (0): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+            (1): Linear(in_features=128, out_features=128, bias=True)
+          )
+          (to_v): Sequential(
+            (0): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+            (1): Linear(in_features=128, out_features=128, bias=True)
+          )
+          (proj): Linear(in_features=128, out_features=128, bias=True)
+          (prenorm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+          (mlp): Sequential(
+            (0): Linear(in_features=128, out_features=256, bias=True)
+            (1): GELU(approximate=none)
+            (2): Linear(in_features=256, out_features=128, bias=True)
+          )
+          (postnorm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (layers): ModuleList(
+      (0): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (1): Sequential(
+        (0): Bottleneck(
+          (conv1): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (1): Bottleneck(
+          (conv1): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (bn2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+    )
+  )
+  (decoder): Decoder(
+    (layers): Sequential(
+      (0): DecoderBlock(
+        (conv): Sequential(
+          (0): Upsample(scale_factor=2.0, mode=bilinear)
+          (1): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (5): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (up): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        (relu): ReLU(inplace=True)
+      )
+      (1): DecoderBlock(
+        (conv): Sequential(
+          (0): Upsample(scale_factor=2.0, mode=bilinear)
+          (1): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (5): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (up): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        (relu): ReLU(inplace=True)
+      )
+      (2): DecoderBlock(
+        (conv): Sequential(
+          (0): Upsample(scale_factor=2.0, mode=bilinear)
+          (1): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (3): ReLU(inplace=True)
+          (4): Conv2d(32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (5): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (up): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        (relu): ReLU(inplace=True)
+      )
+    )
+  )
+  (to_logits): Sequential(
+    (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+    (3): Conv2d(64, 2, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
